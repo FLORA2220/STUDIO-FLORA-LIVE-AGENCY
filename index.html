@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STADIO FLORA</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ヘッダー（横いっぱい） -->
+<section>
+    <picture>
+        <source srcset="img/header_pc.jpg" media="(min-width: 768px)">
+        <img src="img/header_sp.jpg" alt="">
+    </picture>
+</section>
+
+<!-- ① メインビジュアル -->
+<section class="fade-item bg1">
+    <div class="main-visual">
+
+        <!-- PC -->
+        <div class="pc-only">
+            <video id="mainVideoPC" autoplay muted playsinline>
+                <source src="img/main_pc.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- SP -->
+        <div class="sp-only">
+            <video id="mainVideoSP" autoplay muted playsinline>
+                <source src="img/main_sp.mp4" type="video/mp4">
+            </video>
+        </div>
+
+    </div>
+</section>
+
+<!-- ② キャッチコピー -->
+<section class="fade-item bg1">
+    <picture>
+        <source srcset="img/catch_pc.jpg" media="(min-width: 768px)">
+        <img src="img/catch_sp.jpg" alt="">
+    </picture>
+</section>
+
+<!-- ③ 事務所の強み -->
+<section class="fade-item bg1">
+    <picture>
+        <source srcset="img/strength_pc.jpg" media="(min-width: 768px)">
+        <img src="img/strength_sp.jpg" alt="">
+    </picture>
+</section>
+
+<!-- ⑤ スタッフサポート -->
+<section class="fade-item bg2">
+    <picture>
+        <source srcset="img/support_pc.jpg" media="(min-width: 768px)">
+        <img src="img/support_sp.jpg" alt="">
+    </picture>
+</section>
+
+<!-- ④ 初日の流れ -->
+<section class="fade-item bg1">
+    <picture>
+        <source srcset="img/flow_pc.jpg" media="(min-width: 768px)">
+        <img src="img/flow_sp.jpg" alt="">
+    </picture>
+</section>
+
+<!-- ⑦ FAQ -->
+<section class="fade-item bg2">
+    <picture>
+        <source srcset="img/faq_pc.jpg" media="(min-width: 768px)">
+        <img src="img/faq_sp.jpg" alt="">
+    </picture>
+</section>
+
+<!-- ⑧ 応募ボタン（リンクつけた） -->
+<section class="">
+    <a href="https://lin.ee/jeah7h8" target="_blank">
+        <picture>
+            <source srcset="img/entry_pc.jpg" media="(min-width: 768px)">
+            <img src="img/entry_sp.jpg" alt="">
+        </picture>
+    </a>
+</section>
+
+<script>
+/* ===== ふわっとアニメ ===== */
+const fadeItems = document.querySelectorAll('.fade-item');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+});
+fadeItems.forEach(item => observer.observe(item));
+
+/* ===== メインビジュアル：動画1回再生で止まる ===== */
+// PC
+const videoPC = document.getElementById("mainVideoPC");
+if (videoPC) {
+    videoPC.loop = false;  // ループさせない
+}
+
+// SP
+const videoSP = document.getElementById("mainVideoSP");
+if (videoSP) {
+    videoSP.loop = false;  // ループさせない
+}
+</script>
+
+</body>
+</html>
